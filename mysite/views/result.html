@@ -1,0 +1,47 @@
+<%
+    cursor = db.query("SELECT * FROM users");
+    result = cursor.fetchall();
+    #to get the first row from the sql table
+%>
+
+<head>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" link href="/static/css/base.css">
+
+
+</head>
+
+<body>
+
+        <!--from https://www.w3schools.com/bootstrap/bootstrap_navbar.asp -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                 <a class="navbar-brand" href="#">240 Final Projects Sign-Up</a>
+            </div>
+            <ul class="nav navbar-nav">
+                  <li><a href="/">Sign-up</a></li>
+                  <li class="active"><a href="/view">View Sign-ups</a></li>
+
+            </ul>
+        </div>
+    </nav>
+<div class="container">
+    % i = 0;
+    <table style="width:100%">
+
+        %for row in result:
+            <tr>
+                <th>{{row[1]}}</th>
+                <th>{{row[2]}}</th>
+            </tr>
+            % i = i + 1;
+            % end
+    </table>
+<div class="container">
+</body>
